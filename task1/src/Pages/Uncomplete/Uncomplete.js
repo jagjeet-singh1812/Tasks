@@ -64,7 +64,7 @@ const Uncomplete = () => {
                 <div className="checkbox"></div>
                 <div className="text">{todo.text}</div>
                 <div
-                  className="delete-todo"
+                  className="delete-todo-wrong"
                   onClick={() => completeTodo(todo._id)}
                 >
                   x
