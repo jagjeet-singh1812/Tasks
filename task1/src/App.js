@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Complete from "./Pages/Complete/Complete";
+import Uncomplete from "./Pages/Uncomplete/Uncomplete";
+import { Route, Routes } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Splash from "./Pages/Splash/Splash";
+import Head from "./Pages/Header/Head";
+import AppContext from "./Context";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const [load, setload] = useState(false);
+  useEffect(() => {
+    setload(true);
+    setTimeout(() => {
+      setload(false);
+    }, 2500);
+  }, []);
+  return load ? (
+    <Splash />
+  ) : (
+    <>
+    <AppContext>
+      {/* <Scrolltop /> */}
+      {/* <Meganavbar /> */}
+      <Head />
+      {/* <UpwardsArrow /> */}
+      <Routes>
+        <Route path="/incomplete" element={<Uncomplete />}></Route>
+        <Route path="/complete" element={<Complete />}></Route>
+      </Routes>
+      {/* <Footer /> */}
+      </AppContext>
+    </>
   );
 }
 
