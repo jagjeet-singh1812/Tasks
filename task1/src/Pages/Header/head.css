@@ -1,0 +1,10 @@
+.whole_div_btn{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.hedline_title{
+    height:10vh;
+    text-align: center;
+    margin-top: 10px;
+}
