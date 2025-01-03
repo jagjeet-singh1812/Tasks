@@ -19,7 +19,7 @@ function App() {
 
       <div
         className="apply-button"
-        data-hackathon-slug="tsec-hacks-2024"
+        data-hackathon-slug="testing-hackathon-2"
         data-button-theme="light"
         style={{ height: "44px", width: "312px" }}
       ></div>
