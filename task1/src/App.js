@@ -1,33 +1,32 @@
-import Complete from "./Pages/Complete/Complete";
-import Uncomplete from "./Pages/Uncomplete/Uncomplete";
-import { Route, Routes } from "react-router-dom";
-import { useState, useEffect } from "react";
-import Splash from "./Pages/Splash/Splash";
-import Head from "./Pages/Header/Head";
-import AppContext from "./Context";
+import React, { useEffect } from "react";
+import logo from "./Devfolio_Logo-Black.png";
+import logo2 from "./Polygon_Logo-Colored.png"
+import logo3 from "./ethindia-dark.png";
 function App() {
-  const [load, setload] = useState(false);
-  useEffect(() => {
-    setload(true);
-    setTimeout(() => {
-      setload(false);
-    }, 2500);
+  React.useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://apply.devfolio.co/v2/sdk.js';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    }
   }, []);
-  return load ? (
-    <Splash />
-  ) : (
+  return (
     <>
-    <AppContext>
-      {/* <Scrolltop /> */}
-      {/* <Meganavbar /> */}
-      <Head />
-      {/* <UpwardsArrow /> */}
-      <Routes>
-        <Route path="/incomplete" element={<Uncomplete />}></Route>
-        <Route path="/complete" element={<Complete />}></Route>
-      </Routes>
-      {/* <Footer /> */}
-      </AppContext>
+
+
+      <div
+        className="apply-button"
+        data-hackathon-slug="tsec-hacks-2024"
+        data-button-theme="light"
+        style={{ height: "44px", width: "312px" }}
+      ></div>
+
+      <img src={logo} alt="DEVFOLIO LOGO"></img>
+      <img src={logo2} alt="POLYGON LOGO"></img>
+      <img src={logo3} alt="ETHINDIA LOGO"></img>
     </>
   );
 }
